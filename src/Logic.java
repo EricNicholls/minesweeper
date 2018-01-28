@@ -21,7 +21,6 @@ public class Logic {
 					 
 			}
 		}
-		
 		for (int row2 = 0; row2 < arr.length; row2++) {
 			 for (int col2 = 0; col2 < arr.length; col2++) {
 				 // bomb
