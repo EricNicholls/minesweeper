@@ -1,44 +1,28 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 import edu.princeton.cs.introcs.StdDraw;
 
-public class Driver {
+public class Driver{
 	
 	public static void main (String[] args) {
 		
+		int col = 20;
+		int row = 20;
+		int numBombos = (row*col)/10;
+		Logic L = new Logic (row, col, numBombos);
 		
-		 JFrame frame = new JFrame("Test");
-		 frame.setVisible(true);
-		 frame.setSize(500, 500);
-		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 
-		 JPanel panel = new JPanel();
-		 frame.add(panel);
-		 JButton button = new JButton("Hello");
-		 panel.add(button);
-		 button.addActionListener (new ActionListen());
-		 
-		 
-		 Logic L = new Logic (5, 5, 0.2);
-		 
-		 L.newGame();
-		 L.printGame();
+		L.setCanvas(1000, 1000);
+	 
+		L.initGame();
 		
-		
+		while (true) {
+			if (L.getLifeStatus() == true) {
+				L.play();
+			}
+		}
 		
 	}
 	
-	public static class ActionListen implements ActionListener {
-		 public void actionPerformed (ActionEvent e) {     
-			 System.out.println(e.getActionCommand());
-		 }
-		
-		
-	}
 
 }
